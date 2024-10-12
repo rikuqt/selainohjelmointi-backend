@@ -3,6 +3,7 @@ const app = express()
 app.use(express.json())
 const cors = require('cors')
 app.use(cors())
+app.use(express.static('dist'))
 
 let persons = [
   {
@@ -27,9 +28,6 @@ let persons = [
   }
 ]
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>')
-})
 
 app.get('/api/persons', (request, response) => {
   response.json(persons)
